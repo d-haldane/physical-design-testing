@@ -1,3 +1,0 @@
-(fp_lib_table
-  (lib (name ble-mote)(type KiCad)(uri "$(KIPRJMOD)/ble-mote.pretty")(options "")(descr ""))
-)
