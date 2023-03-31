@@ -17,6 +17,7 @@ val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
 defn setup-board () :
   set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
   set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
+  set-paper(ANSI-A)
 
 ; Module to run as a design
 pcb-module my-design :
@@ -35,7 +36,7 @@ pcb-module my-design :
   place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom
 
 ; Run the code
-set-design-directory("CAD") ;set the directory where the generated output will be placed
+set-current-design("CAD") ;set the directory where the generated output will be placed
 setup-board()
 set-main-module(my-design)
 
