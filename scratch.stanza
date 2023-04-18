@@ -25,7 +25,7 @@ pcb-module first-design :
 
 set-current-design("exploder")
 set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
-set-rules(ocdb/manufacturers/rules/jlcpcb-basic-rules)
+set-rules(ocdb/utils/defaults/default-rules)
 set-main-module(first-design)
 
 view-board()
