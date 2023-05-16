@@ -9,7 +9,18 @@ defpackage antenna :
 
 val board-shape = RoundedRectangle(30.0, 25.0, 3.0)
 
+
+pcb-landpattern bga-land :
+   ocdb/utils/landpatterns/make-bga-landpattern(8, 8, 1.0, 0.5
+   , typ(10.0), typ(10.0))
+
 pcb-module first-design :
+  public inst bga : default-component(bga-land)[2]
+
+  for (a in ports(bga[0]), b in ports(bga[1])) do :
+    for (i in 1 through 8 j in 8 through 1 by -1) do :
+      net (a[i] b[j])
+    
   inst r : chip-resistor(100.0)[5]
   net gnd ()
 
@@ -25,7 +36,7 @@ pcb-module first-design :
 
 set-current-design("exploder")
 set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
-set-rules(ocdb/utils/defaults/default-rules)
+set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 set-main-module(first-design)
 
 view-board()
